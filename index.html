@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WERXDROPS | Social Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .profile-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+        
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            padding: 5px;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .profile-img::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.5;
+        }
+        
+        .profile-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 242, 254, 0.3);
+        }
+        
+        .profile-tagline {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out backwards;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:nth-child(1) { animation-delay: 0.2s; }
+        .social-link:nth-child(2) { animation-delay: 0.3s; }
+        .social-link:nth-child(3) { animation-delay: 0.4s; }
+        .social-link:nth-child(4) { animation-delay: 0.5s; }
+        
+        .social-link:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .social-link:hover .icon {
+            transform: scale(1.2);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .icon {
+            font-size: 26px;
+            margin-right: 18px;
+            transition: all 0.3s ease;
+            width: 35px;
+            text-align: center;
+        }
+        
+        .tiktok { color: #69c9d0; }
+        .instagram { color: #e1306c; }
+        .whatsapp { color: #25d366; }
+        .shop { color: #ff9900; }
+        
+        .link-text {
+            flex: 1;
+            text-align: left;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            animation: fadeIn 1.5s ease-out;
+            font-weight: 300;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        @media (max-width: 500px) {
+            .profile-card {
+                padding: 25px;
+            }
+            
+            .profile-img {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .profile-name {
+                font-size: 1.8rem;
+            }
+            
+            .social-link {
+                padding: 18px 20px;
+                font-size: 1rem;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">WERXDROPS</h1>
+            <p class="subtitle">Content Creator | Designer | Community Builder</p>
+        </div>
+        
+        <div class="profile-card">
+            <div class="profile-img">
+                <div style="width:100%;height:100%;border-radius:50%;background:linear-gradient(45deg,#ff00cc,#3333ff);display:flex;align-items:center;justify-content:center;font-size:3rem;">
+                    W
+                </div>
+            </div>
+            <h1 class="profile-name">WERXDROPS</h1>
+            <p class="profile-tagline">Connect with me across platforms</p>
+            
+            <div class="links-container">
+                <a href="https://www.tiktok.com/@werxdrops?_t=ZS-8y5ir8JYVsa&_r=1" target="_blank" class="social-link">
+                    <div class="icon">
+                        <i class="fab fa-tiktok tiktok"></i>
+                    </div>
+                    <div class="link-text">TIKTOK</div>
+                    <div class="icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/wer13str?igsh=MTE4bWZlZTBiZTV5bw==" target="_blank" class="social-link">
+                    <div class="icon">
+                        <i class="fab fa-instagram instagram"></i>
+                    </div>
+                    <div class="link-text">INSTAGRAM</div>
+                    <div class="icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>
+                
+                <a href="https://whatsapp.com/channel/0029Vb6IN6M4SpkGsj2dkd1V" target="_blank" class="social-link">
+                    <div class="icon">
+                        <i class="fab fa-whatsapp whatsapp"></i>
+                    </div>
+                    <div class="link-text">COMMUNITY AIRDROP</div>
+                    <div class="icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>
+                
+                <a href="https://werdesign.netlify.app/" target="_blank" class="social-link">
+                    <div class="icon">
+                        <i class="fas fa-shopping-bag shop"></i>
+                    </div>
+                    <div class="link-text">DIGITAL SHOP</div>
+                    <div class="icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2023 WERXDROPS | All Rights Reserved
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 8 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                const opacity = Math.random() * 0.6 + 0.1;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.opacity = opacity;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Add hover effect enhancement
+            const links = document.querySelectorAll('.social-link');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.25)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
